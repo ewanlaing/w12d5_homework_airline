@@ -1,9 +1,9 @@
 public class Passenger {
 
     private String name;
-    private int numberOfBags;
+    private numberOfBags numberOfBags;
 
-    public Passenger (String name, int numberOfBags){
+    public Passenger (String name, numberOfBags numberOfBags){
         this.name = name;
         this.numberOfBags = numberOfBags;
     }
@@ -13,6 +13,6 @@ public class Passenger {
     }
 
     public int getNumberOfBags() {
-        return numberOfBags;
+        return numberOfBags.getValue();
     }
 }

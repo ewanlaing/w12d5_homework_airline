@@ -6,7 +6,7 @@ public enum PlaneType {
 
     private final int capacity;
 
-    private final int totalWeight;
+    private final double totalWeight;
 
 
     PlaneType(int capacity, int totalWeight) {
@@ -18,7 +18,7 @@ public enum PlaneType {
         return capacity;
     }
 
-    public int getTotalWeight() {
+    public double getTotalWeight() {
         return totalWeight;
     }
 }

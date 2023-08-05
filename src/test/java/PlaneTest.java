@@ -24,6 +24,6 @@ public class PlaneTest {
 
     @Test
     public void canGetTotalWeight(){
-        assertEquals(100, plane.getPlaneType().getTotalWeight());
+        assertEquals(100, plane.getPlaneType().getTotalWeight(), 0.001);
     }
 }

@@ -1,11 +1,12 @@
 import org.junit.Before;
 import org.junit.Test;
 
+import java.time.LocalTime;
 import java.util.ArrayList;
 
 import static org.junit.Assert.assertEquals;
 
-public class FlighTest {
+public class FlightTest {
 
     private Flight flight;
     private Flight flight2;
@@ -18,6 +19,9 @@ public class FlighTest {
     private Plane plane2;
     private Passenger passenger1;
     private Passenger passenger2;
+    private LocalTime time1;
+    private LocalTime time2;
+
 
     @Before
     public void before() {
@@ -31,10 +35,12 @@ public class FlighTest {
         crewMembers.add(crewMember3);
         plane = new Plane(PlaneType.BOEING747);
         plane2 = new Plane(PlaneType.CONCORDE);
-        passenger1 = new Passenger("Ewan", 2);
-        passenger2 = new Passenger("Josie", 4);
-        flight = new Flight(pilot, crewMembers, plane, "NUMBER1", Location.EDI, Location.GLA, "2pm");
-        flight2 = new Flight(pilot, crewMembers, plane2, "NUMBER1", Location.EDI, Location.GLA, "2pm");
+        passenger1 = new Passenger("Ewan", numberOfBags.TWO);
+        passenger2 = new Passenger("Josie", numberOfBags.ONE);
+        time1 = LocalTime.of(14, 0);
+        time2 = LocalTime.of(6, 0);
+        flight = new Flight(pilot, crewMembers, plane, "NUMBER1", Location.EDI, Location.GLA, time1);
+        flight2 = new Flight(pilot, crewMembers, plane2, "NUMBER1", Location.EDI, Location.GLA, time2);
     }
 
     @Test
@@ -74,7 +80,7 @@ public class FlighTest {
 
     @Test
     public void hasDepartureTime(){
-        assertEquals("2pm", flight.getDepartureTime());
+        assertEquals(time1 , flight.getDepartureTime());
     }
 
     @Test
