@@ -68,6 +68,7 @@ public class Flight {
         flightManager = new FlightManager(this);
         if (this.getRemainingSeats() > 0) {
             this.passengers.add(passenger);
+            passenger.setFlight(this);
         }
     }
 }
