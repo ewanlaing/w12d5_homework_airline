@@ -1,5 +1,6 @@
 import java.time.LocalTime;
 import java.util.ArrayList;
+import java.util.Random;
 
 public class Flight {
     private Pilot pilot;
@@ -12,6 +13,8 @@ public class Flight {
     private LocalTime departureTime;
 
     private FlightManager flightManager;
+
+    private ArrayList<Integer> seats;
 
     public Flight(Pilot pilot, ArrayList<CabinCrewMember> crewMembers, Plane plane, String flightNumber, Location destination, Location departure, LocalTime departureTime) {
         this.pilot = pilot;
@@ -67,8 +70,12 @@ public class Flight {
     public void bookPassenger(Passenger passenger) {
         flightManager = new FlightManager(this);
         if (this.getRemainingSeats() > 0) {
+            int seatIndex = (int)(Math.random() * (plane.getSeats().size()));
+            int seat = plane.getSeats().get(seatIndex);
             this.passengers.add(passenger);
             passenger.setFlight(this);
+            passenger.setSeatNumber(seat);
+            plane.getSeats().remove(seatIndex);
         }
     }
 }

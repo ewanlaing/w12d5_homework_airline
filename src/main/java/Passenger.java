@@ -5,10 +5,13 @@ public class Passenger {
 
     private Flight flight;
 
+    private int seatNumber;
+
     public Passenger (String name, numberOfBags numberOfBags){
         this.name = name;
         this.numberOfBags = numberOfBags;
         this.flight = null;
+        this.seatNumber = 0;
     }
 
     public String getName() {
@@ -25,5 +28,13 @@ public class Passenger {
 
     public void setFlight(Flight flight) {
         this.flight = flight;
+    }
+
+    public int getSeatNumber() {
+        return seatNumber;
+    }
+
+    public void setSeatNumber(int seatNumber) {
+        this.seatNumber = seatNumber;
     }
 }
